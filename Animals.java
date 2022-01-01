@@ -5,13 +5,18 @@ public class Animals
     String yash;
     int val;
 
-    public Animals() {  }
+    public Animals() 
+    {  
+        
+    }
 
-    public Animals(String text) {
+    public Animals(String text) 
+    {
         this.text = text;
     }
 
-    public Animals(String text, String yash, int val) {
+    public Animals(String text, String yash, int val) 
+    {
         this.yash = yash;
     }
 
@@ -26,26 +31,28 @@ public class Animals
         this.val = val;
     }
 
-    public void setText(String text) {
+    public void setText(String text) 
+    {
         this.text = text;
-
     }
 
-    public String getText() {
+    public String getText() 
+    {
         return text;
     }
 
-    public void setVal(int val) {
-
+    public void setVal(int val) 
+    {
         this.val = val;
-
     }
 
-    public int getVal() {
+    public int getVal() 
+    {
         return val;
     }
 
-    public String toString() {
+    public String toString() 
+    {
         return text + " - " + getVal();
     }
 }
