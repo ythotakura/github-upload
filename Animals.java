@@ -10,8 +10,7 @@ public class Animals
         
     }
 
-    public Animals(String text) 
-    {
+    public Animals(String text) {
         this.text = text;
     }
 
