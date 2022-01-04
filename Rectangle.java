@@ -2,6 +2,7 @@ public class Rectangle implements Shape
 {
     private int width;
     private int height;
+    
     public Rectangle(int w, int h)
     {
         width = w;
