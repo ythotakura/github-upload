@@ -1,8 +1,7 @@
 public class Circle implements Shape
 {
     private int radius;
-    public Circle(int r)
-    {
+    public Circle(int r){
         radius  = r;
     }
 
