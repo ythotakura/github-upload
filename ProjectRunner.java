@@ -1,41 +1,54 @@
-package towerofhanoi;
-
 // Virginia Tech Honor Code Pledge:
-// Project 3 Spring 2024
+//
 // As a Hokie, I will conduct myself with honor and integrity at all times.
 // I will not lie, cheat, or steal, nor will I accept the actions of those who 
 // do.
 // -- Yashili Thotakura (yashili)
 
+package dailymixes;
+
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+
 /**
- * The ProjectRunner class is responsible for running the Tower of Hanoi puzzle 
- * solver application.
- * It allows specifying the number of disks as a command-line argument or 
- * defaults to 6 disks.
- * It initializes the Tower of Hanoi solver and creates a graphical window to 
- * display the puzzle.
+ * The main class responsible for running the project.
+ * It initializes a PlaylistReader object to read input files and perform 
+ * necessary operations.
  * 
- * @author Yashili Thotakura
- * @version 2024.03.19
+ * The ProjectRunner class provides a main method to execute the project, 
+ * which can handle command-line arguments
+ * specifying input file names. If no arguments are provided, default file 
+ * names are used.
+ * 
+ * @author Yashili Thotakura (yashili)
+ * @version 2024.04.09
  */
 
 public class ProjectRunner {
     
+    //~ Constructors ..........................................................
+    
     /**
-     * The main method of the Tower of Hanoi puzzle solver application.
+     * The main method of the project.
      * 
-     * @param args The command-line arguments. If provided, the first argument 
-     * is interpreted as the number of disks.
-     *             If no argument is provided, the default number of disks is 6
+     * @param args The command-line arguments specifying input file names 
+     * (optional)
+     * @throws ParseException If an error occurs while parsing input files
+     * @throws DailyMixDataException If there is an issue with the daily mix 
+     * data
+     * @throws FileNotFoundException If the specified input files are not found
      */
     
-    public static void main(String[] args) {
-        int disks = 6;
-        if (args.length == 1) {
-            disks = Integer.parseInt(args[0]);
-        }
+    public static void main(String[] args) throws ParseException, 
+    DailyMixDataException, FileNotFoundException {
+        PlaylistReader reader;
         
-        HanoiSolver hanoi = new HanoiSolver(disks);
-        PuzzleWindow puzzleWindow = new PuzzleWindow(hanoi);
+        if (args.length == 2) {
+            String songsFileName = args[0];
+            String playlistsFileName = args[1];
+            reader = new PlaylistReader(songsFileName, playlistsFileName);
+        } else {
+            reader = new PlaylistReader("input.txt", "playlists.txt");
+        }
     }
 }
